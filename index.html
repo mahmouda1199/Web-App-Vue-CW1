@@ -80,8 +80,22 @@
                     </figure>
                 </div>
             </div>    
-
         </div>
+        <div v-else class="ccontainer">
+            <button v-on:click="showCheckout">Home Page</button>
+            <div class="ccard">
+            <h2>Checkout</h2>
+            <p>
+                <strong>First Name:</strong>
+
+                <input type="text" v-model="order.firstName"/>
+            </p>
+            <p>
+                <strong>Phone:</strong>
+                <input type="number" v-model="order.phone" placeholder="Add your text here..."/>
+            </p>
+
+            </div>
         </main>
         <script type="text/javascript">
             var webstore = new Vue({
