@@ -94,6 +94,10 @@
                 <strong>Phone:</strong>
                 <input type="number" v-model="order.phone" placeholder="Add your text here..."/>
             </p>
+            <h2>Order Information</h2>
+                <p>First Name: {{order.firstName}}</p>
+                <p>Phone: {{order.phone}}</p>
+                <button v-on:click="submitForm">Confrim Booking</button>
 
             </div>
         </main>
