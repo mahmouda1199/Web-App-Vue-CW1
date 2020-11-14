@@ -17,18 +17,49 @@
                     {{cartItemCount}} 
                    <span class="fas fa-cart-plus"></span> Checkout
                   </button>
+                  <div class="sort">
+                    <p>Sort Options</p><i class="fas fa-sort"></i>
+                        <div class="salph">
+                        <p>AZ <i class="fas fa-sort-alpha-up"></i></p>
+                        <button class="button5" @click="sortProd('title', 'low')">Low ↓</button>
+                        <button class="button6" @click="sortProd('title', 'high')">High ↑</button> 
+                        </div>
+                        <div class="spri"> 
+                            <p>Price <i class="fas fa-money-bill-alt"></i></p>
+                        <button class="button1" @click="sortProd('price', 'low')">Low ↓</button> 
+                        <button class="button2" @click="sortProd('price', 'high')">High ↑</button>
+                        </div>  
 
-
-
-
-                  
             </div>      
-
-
-
-
 
         </div>
         </main>
+        <script type="text/javascript">
+            var webstore = new Vue({
+                el: '#app',
+                data: {
+                    sitename: 'After School Activity',
+                    products: products,
+                    sort: '',
+                    cart: [],
+                    showProduct: true,
+                    order: {
+                        firstName: '',
+                        phone: '',
+                    },
+                },
+                methods: {
+                    sortProd(key, direction){
+                this.sort = `${key} > ${direction}`
+                if (direction === 'low') {
+                this.products.sort((producta, productb) => producta[key] > productb[key] ? 1: -1)
+               } else {
+               this.products.sort((producta, productb) => producta[key] < productb[key] ? 1: -1)
+               }
+               },
+               
+             },
+            });
+        </script>            
     </body>
 </html>
