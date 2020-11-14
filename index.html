@@ -39,7 +39,47 @@
                         <button class="button5" @click="sortProd('availableInventory', 'low')">Low ↓ </button>
                         <button class="button6" @click="sortProd('availableInventory', 'high')">High ↑</button>
                         </div>
-            </div>      
+            </div>  
+            <div class="container">
+                <div class="card" v-for="product in products"> 
+                    <h2 class="card-header" v-text="product.title"></h2>
+                    <figure>
+                        <img v-bind:src="product.image">
+                    </figure>
+                    <i class="fas fa-comment-medical"></i>
+                    <p class="card-body"  v-html="product.description"></p>
+                    <i class="fas fa-tag"></i>
+                    <p>Price: {{product.price}}</p>
+                    <i class="fas fa-warehouse"></i>
+                    <p>Available places to book: {{product.availableInventory - cartCount(product)}}</p>
+                    <div>
+                        <i class="fas fa-star-half-alt"></i>
+                        <p>Rating:</p>
+                        <span v-for='n in product.rating'>★</span>
+                        <span v-for='n in 5-product.rating'>☆</span>
+                    </div>
+                    <i class="far fa-clock"></i>
+                    <p>Time: {{product.time}}</p>
+                    <i class="fas fa-calendar-day"></i>
+                    <p>Day: {{product.days}}</p>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <p>Teacher: {{product.teacher}}</p>
+                    <i class="fas fa-hourglass-start"></i>
+                    <p>Duration: {{product.duration}}</p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Location: {{product.location}}</p>
+                    <button v-on:click='addToCart(product)' v-if='canAddToCart(product)'>Add to cart</button>
+                    <button disabled="disabled" v-else>Add to cart</button>
+                    <span v-if='product.availableInventory === cartCount(product)'>No more places are available for booking</span>
+                    <span v-else-if="product.availableInventory - cartCount(product) < 4">
+                        Remaining places to be booked are: "{{product.availableInventory - cartCount(product)}}"
+                    </span>
+                    <span v-else>Book Now</span> <i class="fas fa-cart-plus"></i>
+                    <figure>
+                        <img v-bind:src="product.gif">
+                    </figure>
+                </div>
+            </div>    
 
         </div>
         </main>
@@ -66,7 +106,27 @@
                this.products.sort((producta, productb) => producta[key] < productb[key] ? 1: -1)
                }
                },
+               addToCart(products) {
+                    this.cart.push(products);
+                },
+                canAddToCart(product) {
+                    return product.availableInventory > this.cartCount(product);
+                },
+                cartCount(id) {
+                    let count = 0;
+                    for (let i = 0; i < this.cart.length; i++) {
+                        if (this.cart[i] === id) {
+                            count++;
+                        }
+                    }
+                    return count;
+                },
 
+             },
+             computed: {
+                cartItemCount() {
+                    return this.cart.length;
+                },
              },
             });
         </script>            
