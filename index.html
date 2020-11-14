@@ -13,7 +13,7 @@
             </header>
         <main>
             <div v-if='showProduct'>
-                <button v-on:click='showCheckout' //:disabled="checkout">
+                <button v-on:click='showCheckout' :disabled="checkout">
                     {{cartItemCount}} 
                    <span class="fas fa-cart-plus"></span> Checkout
                   </button>
@@ -168,12 +168,19 @@
                     }
                     return count;
                 },
+                showCheckout() {
+                    this.showProduct = this.showProduct ? false : true;
+                },
+
 
              },
              computed: {
                 cartItemCount() {
                     return this.cart.length;
                 },
+                checkout() {
+                return this.cart.length > 0 == false;
+                 },
              },
             });
         </script>            
