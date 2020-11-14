@@ -1,0 +1,86 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("./images/theverge.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  .container {
+    display: grid;
+    max-width: 1000px;
+    grid-gap: 20px;
+    padding: 20px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .card {
+    background-color: rgb(155, 219, 219);
+    width: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+
+  }
+  .card-body {
+    margin-top: -5px;
+    width: 100%;
+    padding: 30px;
+    height: 50px;
+  }
+  
+  .card img {
+    width: 300px;
+    height: 300px;
+  }
+  
+.card-header{
+    border-top: 8px black;
+}  
+  .card .card-body p {
+    margin-top: 10px;
+    margin:40px;
+  }
+  
+  .ccontainer{
+    width: 400px;
+    height: 500px;
+  }
+  .ccard{
+    border: 10px;
+    width: 400px;
+    height: 500px;
+    margin-top: 20px;
+    border-radius: 12px;
+    background-color:  rgb(155, 219, 219);
+  }
+  .ccart{
+    margin-left:2000px;
+  }
+  
+.sort{
+margin-left: 260px;
+}
+.salph{
+  margin-left: 20px;
+}
+.spri{
+  margin-left: 120px;
+  margin-top:-37px;
+}
+.sra{
+  margin-left: 220px;
+  margin-top:-37px;
+}
+.sprod{
+  margin-left: 320px;
+  margin-top:-37px;
+}
