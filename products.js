@@ -180,7 +180,7 @@ let products = [
       "gif": "./images/singg.gif"
     },
     {
-      "id": 14,
+      "id": 13,
       "title": "Poetry Club",
       "description": "Poetry is the key",
       "price": 8,
@@ -195,7 +195,7 @@ let products = [
       "gif": "./images/poetryg.gif"
     },
     {
-      "id": 15,
+      "id": 14,
       "title": "Craft Club",
       "description": "Imagination",
       "price": 8,
@@ -210,7 +210,7 @@ let products = [
       "gif": "./images/craftg.gif"
     },
     {
-      "id": 16,
+      "id": 15,
       "title": "Cooking Club",
       "description": "Make excellent meals",
       "price": 8,
