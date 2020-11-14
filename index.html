@@ -12,6 +12,18 @@
                 <h1 v-text="sitename"></h1>
             </header>
         <main>
+            <div v-if='showProduct'>
+                <button v-on:click='showCheckout' //:disabled="checkout">
+                    {{cartItemCount}} 
+                   <span class="fas fa-cart-plus"></span> Checkout
+                  </button>
+
+
+
+
+                  
+            </div>      
+
 
 
 
