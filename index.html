@@ -98,7 +98,28 @@
                 <p>First Name: {{order.firstName}}</p>
                 <p>Phone: {{order.phone}}</p>
                 <button v-on:click="submitForm">Confrim Booking</button>
-
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Price</th>
+                                <th>rating</th>
+                                <th>Location</th> 
+                            </tr>
+                        </thead>
+                        <div>
+                            <tr v-for="products in cart">
+                                <p>Your added to cart items are shown below<i class="fas fa-cart-arrow-down"></i></p>
+                                <td>{{products.title}}</td>
+                                <td>${{products.price}}</td>
+                                <td>{{products.rating}}</td>
+                                <td>{{products.location}}</td>
+                                <td><i v-on:click="removeCart(products)" class=" mr-auto fas fa-minus"></td>
+                            </tr>
+                        </div>
+                    </table>
+                </div>
             </div>
         </main>
         <script type="text/javascript">
@@ -129,6 +150,9 @@
                 },
                 canAddToCart(product) {
                     return product.availableInventory > this.cartCount(product);
+                },
+                removeCart(products) {
+                    this.cart.splice(this.cart.indexOf(products), 1)
                 },
                 cartCount(id) {
                     let count = 0;
