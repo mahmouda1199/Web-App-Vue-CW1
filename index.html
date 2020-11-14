@@ -88,7 +88,7 @@
             <p>
                 <strong>First Name:</strong>
 
-                <input type="text" v-model="order.firstName"/>
+                <input type="text" v-model="order.firstName" v-on:keypress="CheckInput($event)"/>
             </p>
             <p>
                 <strong>Phone:</strong>
@@ -154,6 +154,11 @@
                 removeCart(products) {
                     this.cart.splice(this.cart.indexOf(products), 1)
                 },
+                CheckInput(e) {
+               let input = String.fromCharCode(e.keyCode); 
+               if(/[A-Za-z]/.test(input)) return true; 
+               else e.preventDefault(); 
+            },
                 cartCount(id) {
                     let count = 0;
                     for (let i = 0; i < this.cart.length; i++) {
